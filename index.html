@@ -130,6 +130,29 @@ h1 em{font-style:normal;background:var(--grad);-webkit-background-clip:text;back
 .float.a{left:-20%;top:9%;transform:translateY(calc(var(--p)*-95px)) rotate(calc(-7deg + var(--p)*9deg))}
 .float.b{right:-20%;bottom:5%;transform:translateY(calc(var(--p)*105px)) rotate(calc(6deg - var(--p)*9deg))}
 
+.love{--p:0;--fg:#3f0f2c;position:relative;overflow:hidden;background:radial-gradient(90% 90% at 70% 35%,#ffd2bf 0%,#ffae96 100%);color:#3f0f2c;padding:84px 16px 96px}
+.love-in{position:relative;z-index:1;max-width:1180px;margin:0 auto;display:grid;gap:34px}
+.love-in>*{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform 1s var(--ease)}
+.love.in .love-in>*{opacity:1;transform:none}
+.love.in .love-in>:nth-child(2){transition-delay:.12s}.love.in .love-in>:nth-child(3){transition-delay:.24s}
+.love .eyebrow{color:#8f0d40}
+.love h2{font:400 clamp(50px,9vw,104px)/1 var(--display);letter-spacing:-.015em;margin:10px 0 18px}
+.love h2 em{font-style:normal;color:#8f0d40}
+.score{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px}
+.score b{font:400 58px/1 var(--display)}
+.stars{display:flex;gap:3px}
+.stars svg{width:26px;height:26px;fill:#8f0d40}
+.score span{font-weight:700;font-size:18px}
+.love .btn{margin-top:24px;background:#3f0f2c;color:#fff;display:inline-flex;align-items:center;gap:10px}
+.love .btn::after{content:"\2192";font-size:20px;line-height:1}
+.pull{margin:0;background:#3f0f2c;color:#fff;border-radius:28px;padding:34px 28px;transform:rotate(-1.2deg);box-shadow:0 34px 56px -30px rgba(63,15,44,.85)}
+.pull p{font:400 clamp(34px,4.6vw,58px)/1.08 var(--display);color:#fff}
+.pull cite{display:block;margin-top:18px;font:700 16px var(--body);font-style:normal;color:#ffd2bf}
+.loves{display:grid;gap:14px}
+.loves figure{margin:0;display:flex;flex-direction:column;background:#fff3ec;border-radius:24px;padding:26px 24px;box-shadow:0 24px 40px -30px rgba(63,15,44,.7)}
+.loves .stars svg{width:18px;height:18px}
+.loves blockquote{margin:14px 0 18px;font-size:18px;line-height:1.5;color:#4a1a38}
+.loves figcaption{margin-top:auto;font:400 22px var(--display);color:#8f0d40}
 .closing{background:var(--ink);color:#fff;text-align:center;padding:96px 16px}
 .closing h2{font:400 clamp(48px,9vw,104px)/1.02 var(--display);letter-spacing:-.02em}
 .closing em{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;padding-right:.08em}
@@ -151,6 +174,12 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 28px}
   .ch:nth-of-type(even) .ch-media{order:-1;justify-self:start;margin-left:2vw;margin-right:0}
   .ch:nth-of-type(even) .ch-text{padding-left:6vw}
   .ch-media{width:min(34vw,480px);justify-self:end;margin-right:2vw;margin-left:0}
+  .love{padding:130px max(40px,calc((100vw - 1180px)/2))}
+  .love-in{grid-template-columns:1fr 1fr;gap:56px 70px;align-items:center}
+  .loves{grid-column:1/-1;grid-template-columns:repeat(6,1fr);gap:20px}
+  .loves figure{grid-column:span 2;padding:32px 30px}
+  .loves figure:nth-child(n+4){grid-column:span 3}
+  .pull{padding:46px 44px}
   .closing{padding:140px 40px}
   footer{padding:28px 40px}
 }
@@ -159,6 +188,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 28px}
   .ticker div{animation:none}
   .stage-site .slide.on,.stage-site .slide.out{animation:none}
   .bal svg{animation:none}
+  .love-in>*{transition:none}
   .ch-text>*,.num::after,.orbit,.arch,.float{transition:none}
 }
 </style>
@@ -237,6 +267,25 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 28px}
       <img class="float a" loading="lazy" src="assets/work/balloons-a.jpg" alt="Two balloon columns in purple, black and pink">
       <img class="float b" loading="lazy" src="assets/work/balloons-b.jpg" alt="Peach, olive and gold balloon arch in a doorway"></div>
   </article>
+
+  <section class="love" aria-labelledby="love-title">
+    <div class="love-in">
+      <div>
+        <p class="eyebrow">Google reviews</p>
+        <h2 id="love-title">Loved by <em>our village.</em></h2>
+        <div class="score"><b>5.0</b><div class="stars" role="img" aria-label="5 out of 5 stars"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 3 6.6 7.2.8-5.4 4.8 1.5 7.1L12 17.7l-6.3 3.6 1.5-7.1L1.800 9.400 9 8.600z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 3 6.6 7.2.8-5.4 4.8 1.5 7.1L12 17.7l-6.3 3.6 1.5-7.1L1.800 9.400 9 8.600z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 3 6.6 7.2.8-5.4 4.8 1.5 7.1L12 17.7l-6.3 3.6 1.5-7.1L1.800 9.400 9 8.600z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 3 6.6 7.2.8-5.4 4.8 1.5 7.1L12 17.7l-6.3 3.6 1.5-7.1L1.800 9.400 9 8.600z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 3 6.6 7.2.8-5.4 4.8 1.5 7.1L12 17.7l-6.3 3.6 1.5-7.1L1.800 9.400 9 8.600z"/></svg></div><span>31 reviews on Google</span></div>
+        <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Our+Little+Village+1732+Victory+Blvd+Staten+Island+NY+10314" target="_blank" rel="noopener">Read the reviews</a>
+      </div>
+      <blockquote class="pull"><p>&ldquo;&hellip;all you do is show up with a cake.&rdquo;</p><cite>Kevin, Google review</cite></blockquote>
+      <div class="loves">
+        <figure><div class="stars" role="img" aria-label="5 out of 5 stars"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 3 6.6 7.2.8-5.4 4.8 1.5 7.1L12 17.7l-6.3 3.6 1.5-7.1L1.800 9.400 9 8.600z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 3 6.6 7.2.8-5.4 4.8 1.5 7.1L12 17.7l-6.3 3.6 1.5-7.1L1.800 9.400 9 8.600z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 3 6.6 7.2.8-5.4 4.8 1.5 7.1L12 17.7l-6.3 3.6 1.5-7.1L1.800 9.400 9 8.600z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 3 6.6 7.2.8-5.4 4.8 1.5 7.1L12 17.7l-6.3 3.6 1.5-7.1L1.800 9.400 9 8.600z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 3 6.6 7.2.8-5.4 4.8 1.5 7.1L12 17.7l-6.3 3.6 1.5-7.1L1.800 9.400 9 8.600z"/></svg></div><blockquote>&ldquo;Our Little Village is truly the BEST place for birthday parties! … If you are looking for a stress-free experience and want everyone - kids and adults - to leave happy, have your child's birthday party at Our Little Village.&rdquo;</blockquote><figcaption>Julie, Google review</figcaption></figure>
+        <figure><div class="stars" role="img" aria-label="5 out of 5 stars"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 3 6.6 7.2.8-5.4 4.8 1.5 7.1L12 17.7l-6.3 3.6 1.5-7.1L1.800 9.400 9 8.600z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 3 6.6 7.2.8-5.4 4.8 1.5 7.1L12 17.7l-6.3 3.6 1.5-7.1L1.800 9.400 9 8.600z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 3 6.6 7.2.8-5.4 4.8 1.5 7.1L12 17.7l-6.3 3.6 1.5-7.1L1.800 9.400 9 8.600z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 3 6.6 7.2.8-5.4 4.8 1.5 7.1L12 17.7l-6.3 3.6 1.5-7.1L1.800 9.400 9 8.600z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 3 6.6 7.2.8-5.4 4.8 1.5 7.1L12 17.7l-6.3 3.6 1.5-7.1L1.800 9.400 9 8.600z"/></svg></div><blockquote>&ldquo;They made everyone feel completely at home and went above and beyond in every possible way. … Jeanine and Angie didn’t miss a beat and handled everything so seamlessly, allowing us to actually enjoy the party stress-free.&rdquo;</blockquote><figcaption>Danielle, Google review</figcaption></figure>
+        <figure><div class="stars" role="img" aria-label="5 out of 5 stars"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 3 6.6 7.2.8-5.4 4.8 1.5 7.1L12 17.7l-6.3 3.6 1.5-7.1L1.800 9.400 9 8.600z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 3 6.6 7.2.8-5.4 4.8 1.5 7.1L12 17.7l-6.3 3.6 1.5-7.1L1.800 9.400 9 8.600z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 3 6.6 7.2.8-5.4 4.8 1.5 7.1L12 17.7l-6.3 3.6 1.5-7.1L1.800 9.400 9 8.600z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 3 6.6 7.2.8-5.4 4.8 1.5 7.1L12 17.7l-6.3 3.6 1.5-7.1L1.800 9.400 9 8.600z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 3 6.6 7.2.8-5.4 4.8 1.5 7.1L12 17.7l-6.3 3.6 1.5-7.1L1.800 9.400 9 8.600z"/></svg></div><blockquote>&ldquo;What an absolute dream. They handled everything with grace and hospitality. All of our friends and family were so impressed. … A one stop shop !!! Amazing, amazing, amazing.&rdquo;</blockquote><figcaption>Anjelica, Google review</figcaption></figure>
+        <figure><div class="stars" role="img" aria-label="5 out of 5 stars"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 3 6.6 7.2.8-5.4 4.8 1.5 7.1L12 17.7l-6.3 3.6 1.5-7.1L1.800 9.400 9 8.600z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 3 6.6 7.2.8-5.4 4.8 1.5 7.1L12 17.7l-6.3 3.6 1.5-7.1L1.800 9.400 9 8.600z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 3 6.6 7.2.8-5.4 4.8 1.5 7.1L12 17.7l-6.3 3.6 1.5-7.1L1.800 9.400 9 8.600z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 3 6.6 7.2.8-5.4 4.8 1.5 7.1L12 17.7l-6.3 3.6 1.5-7.1L1.800 9.400 9 8.600z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 3 6.6 7.2.8-5.4 4.8 1.5 7.1L12 17.7l-6.3 3.6 1.5-7.1L1.800 9.400 9 8.600z"/></svg></div><blockquote>&ldquo;Truly such an amazing party planning experience! Jeanine was so kind and easy to work with! … Literally showed up and everything was beautifully prepared and decorated!&rdquo;</blockquote><figcaption>Angelica, Google review</figcaption></figure>
+        <figure><div class="stars" role="img" aria-label="5 out of 5 stars"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 3 6.6 7.2.8-5.4 4.8 1.5 7.1L12 17.7l-6.3 3.6 1.5-7.1L1.800 9.400 9 8.600z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 3 6.6 7.2.8-5.4 4.8 1.5 7.1L12 17.7l-6.3 3.6 1.5-7.1L1.800 9.400 9 8.600z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 3 6.6 7.2.8-5.4 4.8 1.5 7.1L12 17.7l-6.3 3.6 1.5-7.1L1.800 9.400 9 8.600z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 3 6.6 7.2.8-5.4 4.8 1.5 7.1L12 17.7l-6.3 3.6 1.5-7.1L1.800 9.400 9 8.600z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 3 6.6 7.2.8-5.4 4.8 1.5 7.1L12 17.7l-6.3 3.6 1.5-7.1L1.800 9.400 9 8.600z"/></svg></div><blockquote>&ldquo;The owner, Jeanine, is very caring, creative, and attentive, and made the whole party feel comfortable. … I highly recommend OLV for birthdays, art classes, and everything in-between.&rdquo;</blockquote><figcaption>Allison, Google review</figcaption></figure>
+      </div>
+    </div>
+  </section>
 
   <section class="closing"><h2>Let's plan <em>something.</em></h2><div class="cta"><a class="btn main" href="contact.html">Get in touch</a><a class="btn alt" href="https://www.instagram.com/ourlittlevillage.llc/">See more on Instagram</a></div></section>
 </main>
@@ -362,7 +411,23 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 28px}
     arch.appendChild(v);
   });
 
+  var love = document.querySelector('.love');
+  (function(){
+    var colors = ['#ffffff', '#d81b66', '#ffd24d', '#7445ea'];
+    var spots = [[-3,6,140,-110,-1,1],[92,4,165,90,-2.4],[94,70,110,110,-.6,1],[-2,76,95,80,-3.2,1]];
+    var html = '<div class="ghost" aria-hidden="true">Loved</div>';
+    spots.forEach(function(b, k){
+      var c = colors[k], id = 'lv' + k;
+      html += '<div class="bal' + (b[5] ? ' extra' : '') + '" aria-hidden="true" style="--x:' + b[0] + ';--y:' + b[1] + ';--s:' + b[2] + ';--v:' + b[3] + ';--d:' + b[4] + 's">' +
+        '<svg viewBox="0 0 100 150"><defs><radialGradient id="' + id + '" cx=".36" cy=".3" r=".82"><stop offset="0" style="stop-color:color-mix(in srgb,' + c + ' 35%,#fff)"/><stop offset=".38" style="stop-color:' + c + '"/><stop offset="1" style="stop-color:color-mix(in srgb,' + c + ' 68%,#000)"/></radialGradient></defs>' +
+        '<path d="M50 118c-2 12 6 16 2 30" fill="none" stroke="' + c + '" stroke-opacity=".6" stroke-width="1.2"/><path d="M44 121h12l-4-7h-4Z" fill="' + c + '"/>' +
+        '<ellipse cx="50" cy="58" rx="46" ry="57" fill="url(#' + id + ')"/><ellipse cx="33" cy="33" rx="9" ry="15" transform="rotate(24 33 33)" fill="#fff" opacity=".55"/></svg></div>';
+    });
+    love.insertAdjacentHTML('afterbegin', html);
+  })();
+
   if (!('IntersectionObserver' in window)) {
+    love.classList.add('in');
     chapters.forEach(function(c){ c.classList.add('in'); });
   } else {
     var reveal = new IntersectionObserver(function(entries){
@@ -379,6 +444,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 28px}
       });
     }, { rootMargin: '160px 0px' });
     chapters.forEach(function(c){ reveal.observe(c); player.observe(c); });
+    reveal.observe(love);
   }
 
   if (reduced) return;
@@ -386,7 +452,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 28px}
   function update(){
     queued = false;
     var vh = window.innerHeight;
-    chapters.forEach(function(c){
+    chapters.concat(love).forEach(function(c){
       var r = c.getBoundingClientRect();
       if (r.bottom < -vh * .3 || r.top > vh * 1.3) return;
       var p = Math.max(-1, Math.min(1, (r.top + r.height / 2 - vh / 2) / vh));
