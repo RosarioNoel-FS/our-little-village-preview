@@ -69,13 +69,60 @@ em{font-style:normal;color:var(--em);padding-right:.08em}
 .reveal{opacity:0;transform:translateY(30px);transition:opacity .85s ease,transform 1s var(--ease)}
 .reveal.in{opacity:1;transform:none}
 
-.details{position:relative;z-index:1;display:grid;gap:20px;max-width:1180px;margin:0 auto;padding:44px 16px 72px}
-.card{background:var(--card);color:var(--cfg);border-radius:26px;padding:30px 24px;box-shadow:0 26px 50px -30px rgba(0,0,0,.55)}
-.card h3{font-size:clamp(34px,4.6vw,48px);line-height:1.05}
+.details{position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:44px 16px 72px}
+.details+.details{padding-top:8px}
+.cards{display:grid;gap:20px}
+.group-head{font-size:clamp(42px,7vw,80px);line-height:1.02;text-align:center;margin-bottom:30px}
+.group-intro{max-width:32em;margin:-12px auto 30px;text-align:center;font-size:19px;line-height:1.5;color:var(--sub)}
+.group-note{margin-top:24px;text-align:center;font-weight:500;font-size:17px;color:var(--sub)}
+
+/* Cards rise in one after another (--i), then their contents follow (--j). Hover lift uses `translate` so it never inherits the entrance delay. */
+.card{position:relative;overflow:hidden;background:var(--card);color:var(--cfg);border-radius:28px;padding:30px 24px;box-shadow:inset 0 1px 0 rgba(255,255,255,.35),0 26px 50px -30px rgba(0,0,0,.6);transition:translate .5s var(--ease),box-shadow .5s var(--ease)}
+.card::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .5s;background:radial-gradient(420px circle at var(--mx,50%) var(--my,0%),color-mix(in srgb,#fff 34%,transparent),transparent 60%)}
+.card>*{position:relative}
+@media (hover:hover){
+  .card:hover{translate:0 -6px;box-shadow:inset 0 1px 0 rgba(255,255,255,.35),0 40px 64px -30px rgba(0,0,0,.7)}
+  .card:hover::before{opacity:1}
+}
+.card.reveal{transform:translateY(54px) scale(.965);transition:opacity .8s ease calc(var(--i)*.14s),transform 1.15s var(--ease) calc(var(--i)*.14s),translate .5s var(--ease),box-shadow .5s var(--ease)}
+.card.reveal.in{transform:none}
+.card.reveal>*{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .9s var(--ease);transition-delay:calc(var(--i)*.14s + var(--j,0)*.07s + .2s)}
+.card.reveal.in>*{opacity:1;transform:none}
+.tag{display:inline-block;padding:7px 13px;border-radius:999px;background:color-mix(in srgb,var(--cem) 13%,transparent);color:var(--cfg);font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:16px}
+.card h3{font-size:clamp(34px,4.6vw,50px);line-height:1.04}
 .meta{margin-top:10px;font:500 19px/1.35 var(--body);color:var(--cem)}
+.card .body{margin-top:16px;font-size:18px;line-height:1.5;color:var(--csub)}
 .card ul{list-style:none;padding:0;margin-top:20px;display:grid;gap:13px}
 .card li{position:relative;padding-left:26px;color:var(--csub);font-size:18px;line-height:1.42}
 .card li::before{content:"\2726";position:absolute;left:0;top:0;color:var(--cem)}
+.card li strong{display:block;color:var(--cfg)}
+.facts{display:grid;margin-top:20px}
+.facts div{padding:13px 0;border-top:1px solid color-mix(in srgb,var(--cfg) 18%,transparent)}
+.facts dt{font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--cem)}
+.facts dd{margin:4px 0 0;font-size:18px;line-height:1.42}
+.chips-label{margin-top:24px;font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--cem)}
+.card .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.card .chips li{padding:9px 15px;border:1.5px solid color-mix(in srgb,var(--cfg) 30%,transparent);border-radius:999px;color:var(--cfg);font-size:16px;font-weight:500;line-height:1.2}
+.card .chips li::before{content:none}
+.note{margin-top:22px;padding:16px 18px;border-radius:16px;background:color-mix(in srgb,var(--cfg) 7%,transparent);border-left:3px solid var(--cem);font-size:17px;line-height:1.5;color:var(--csub)}
+.note strong{display:block;color:var(--cfg);margin-bottom:3px}
+.card-link{display:inline-flex;align-items:center;gap:8px;margin-top:24px;padding:12px 20px;border-radius:999px;background:var(--cfg);color:var(--card);font-weight:700;text-decoration:none}
+.card-link span{transition:transform .35s var(--ease)}
+.card-link:hover span{transform:translateX(5px)}
+
+/* Endless ribbon of pills. The copy loops seamlessly; it pauses on hover and with the pause button. */
+.ribbon{display:flex;overflow:hidden;margin:0 -16px 34px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.run{display:flex;flex:none;gap:12px;padding:0 6px;list-style:none;animation:run 32s linear infinite}
+.run li{flex:none;padding:13px 24px;border-radius:999px;background:var(--card);color:var(--cfg);font:400 clamp(21px,2.4vw,30px)/1.1 var(--display);white-space:nowrap}
+.run li::before{content:"\2726";margin-right:12px;color:var(--cem)}
+.ribbon:hover .run{animation-play-state:paused}
+@keyframes run{to{transform:translateX(-100%)}}
+
+/* Headings write on word by word (words are wrapped in pages.js). */
+.reveal.split{opacity:1;transform:none}
+.split .w{display:inline-block;overflow:hidden;vertical-align:top;padding:.04em .02em .1em;margin:-.04em -.02em -.1em}
+.split .w>span{display:inline-block;transform:translateY(108%) rotate(4deg);transform-origin:0 100%;transition:transform 1.05s var(--ease);transition-delay:calc(var(--w)*.075s)}
+.split.in .w>span{transform:none}
 
 .gallery-wrap{--p:0;position:relative;overflow:hidden;background:var(--bg2);padding:64px 16px 110px}
 .gallery{position:relative;z-index:1;display:grid;grid-template-columns:repeat(2,1fr);gap:12px;max-width:1180px;margin:0 auto;align-items:start}
@@ -129,8 +176,13 @@ footer div{display:flex;flex-wrap:wrap;gap:8px 26px;max-width:1180px;margin:0 au
   .phero{grid-template-columns:1.1fr .9fr;gap:60px;padding:44px 40px 110px;min-height:calc(100vh - 82px)}
   .stage{width:min(30vw,430px)}
   .statement{padding-top:128px}
-  .details{grid-template-columns:repeat(2,1fr);padding:64px 40px 110px}
+  .details{padding:64px 40px 110px}
+  .details+.details{padding-top:10px}
+  .cards{grid-template-columns:repeat(2,1fr);gap:24px}
   .card{padding:42px 40px}
+  .card.wide{grid-column:1/-1}
+  .card.wide ul,.card.wide .facts{grid-template-columns:1fr 1fr;column-gap:44px}
+  .ribbon{margin:0 -40px 44px}
   .gallery-wrap{padding:90px 40px 150px}
   .gallery{grid-template-columns:repeat(3,1fr);gap:20px}
   .col{gap:20px}
@@ -150,6 +202,13 @@ footer div{display:flex;flex-wrap:wrap;gap:8px 26px;max-width:1180px;margin:0 au
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   .fx>*,.arch{animation:none;opacity:1;transform:none;filter:none;clip-path:inset(0 0 0 0 round 999px 999px 0 0)}
-  .reveal{opacity:1;transform:none;transition:none}
+  .reveal,.card.reveal,.card.reveal>*,.split .w>span{opacity:1;transform:none;transition:none}
   .bal svg{animation:none}
+  .ribbon{-webkit-mask-image:none;mask-image:none;margin-left:0;margin-right:0}
+  .run{animation:none;flex:auto;flex-wrap:wrap;justify-content:center;row-gap:10px}
+  .run[aria-hidden]{display:none}
 }
+
+/* the six links only fit on one line from 1100px; narrower screens use Menu */
+@media (min-width:900px) and (max-width:1099px){.nav ul{display:none!important}.menu{display:block!important}}
+.nav li a{white-space:nowrap}

@@ -200,6 +200,9 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 28px}
   .love-in>*{transition:none}
   .ch-text>*,.num::after,.orbit,.arch,.float{transition:none}
 }
+/* the six links only fit on one line from 1100px; narrower screens use Menu */
+@media (min-width:900px) and (max-width:1099px){.nav ul{display:none!important}.menu{display:block!important}}
+.nav li a{white-space:nowrap}
 </style>
 <link rel="stylesheet" href="assets/access.css">
 </head>
@@ -217,13 +220,13 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 28px}
     <ul>
       <li><a href="parties.html">Parties</a></li>
       <li><a href="private-events.html">Private Events</a></li>
-      <li><a href="toddler-classes.html">Toddler</a></li>
-      <li><a href="art-classes.html">Art</a></li>
+      <li><a href="toddler-classes.html">Classes</a></li>
+      <li><a href="art-classes.html">Creative Arts</a></li>
       <li><a href="special-events.html">Special Events</a></li>
-      <li><a href="balloons-backdrops.html">Balloons</a></li>
+      <li><a href="balloons-backdrops.html">GO OLV</a></li>
     </ul>
     <div class="nav-end">
-      <details class="menu"><summary>Menu</summary><div class="panel"><a href="parties.html">Parties</a><a href="private-events.html">Private Events</a><a href="toddler-classes.html">Toddler</a><a href="art-classes.html">Art</a><a href="special-events.html">Special Events</a><a href="balloons-backdrops.html">Balloons</a><a href="contact.html">Contact</a></div></details>
+      <details class="menu"><summary>Menu</summary><div class="panel"><a href="parties.html">Parties</a><a href="private-events.html">Private Events</a><a href="toddler-classes.html">Classes</a><a href="art-classes.html">Creative Arts</a><a href="special-events.html">Special Events</a><a href="balloons-backdrops.html">GO OLV</a><a href="contact.html">Contact</a></div></details>
       <a class="call" href="contact.html">Contact us</a>
     </div>
   </nav>
@@ -241,37 +244,37 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 28px}
   <header class="offer-head"><h2>What <em>we do</em></h2><p>From kids' parties to every other kind of celebration, here's how we can help.</p></header>
 
   <article class="ch" data-clip="parties">
-    <div class="ch-text"><span class="num">01</span><h3><em>Parties</em></h3><p>All-inclusive birthday packages, styled right down to the last balloon.</p><a class="more" href="parties.html">Explore parties</a></div>
+    <div class="ch-text"><span class="num">01</span><h3>Birthday <em>Parties</em></h3><p>Luxury three-hour packages with the whole venue, or play-packed parties built around the kids.</p><a class="more" href="parties.html">Explore parties</a></div>
     <div class="ch-media"><div class="arch"></div>
       <img class="float a" loading="lazy" src="assets/work/parties-a.jpg" alt="Strawberry-themed birthday centerpiece on a pink table">
       <img class="float b" loading="lazy" src="assets/work/parties-b.jpg" alt="Teacup tower centerpiece with spring flowers"></div>
   </article>
   <article class="ch" data-clip="private">
-    <div class="ch-text"><span class="num">02</span><h3>Private Events &amp; <em>Playdates</em></h3><p>Have the space to yourselves, set up and styled for your group.</p><a class="more" href="private-events.html">Explore private events</a></div>
+    <div class="ch-text"><span class="num">02</span><h3>Private Events &amp; <em>Playdates</em></h3><p>Private playdates, themed specialty playdates and all-inclusive adults&#8217; nights. Zero stress, zero mess.</p><a class="more" href="private-events.html">Explore private events</a></div>
     <div class="ch-media"><div class="arch"></div>
       <img class="float a" loading="lazy" src="assets/work/private-a.jpg" alt="Tea party table setting with roses and a sprinkled donut">
       <img class="float b" loading="lazy" src="assets/work/private-b.jpg" alt="Event room with pink dressed tables and draped ceiling"></div>
   </article>
   <article class="ch" data-clip="toddler">
-    <div class="ch-text"><span class="num">03</span><h3>Toddler <em>Classes</em></h3><p>Toddler Tuesdays bring sensory play and open play, with complimentary coffee for the grown-ups.</p><a class="more" href="toddler-classes.html">Explore toddler classes</a></div>
+    <div class="ch-text"><span class="num">03</span><h3>Weekly <em>Classes</em></h3><p>Toddler Tuesday open play and Drop-Off &amp; Play Thursday, plus pop-ups from special guest teachers.</p><a class="more" href="toddler-classes.html">Explore weekly classes</a></div>
     <div class="ch-media"><div class="arch"></div>
       <img class="float a" loading="lazy" src="assets/work/toddler-a.jpg" alt="Brightly colored wooden building blocks">
       <img class="float b" loading="lazy" src="assets/work/toddler-b.jpg" alt="Pink rice in a sensory play bin"></div>
   </article>
   <article class="ch" data-clip="art">
-    <div class="ch-text"><span class="num">04</span><h3>Art <em>Classes</em></h3><p>After-school sessions for Little Artists and Jr. Artists to create, paint, draw and sculpt.</p><a class="more" href="art-classes.html">Explore art classes</a></div>
+    <div class="ch-text"><span class="num">04</span><h3>Creative <em>Arts</em></h3><p>Real studio techniques for kids, teens and adults: Little Artists, Jr. Artists and 1:1 portfolio prep.</p><a class="more" href="art-classes.html">Explore creative arts</a></div>
     <div class="ch-media"><div class="arch"></div>
       <img class="float a" loading="lazy" src="assets/work/art-a.jpg" alt="Handmade colorful mosaic plate">
       <img class="float b" loading="lazy" src="assets/work/art-b.jpg" alt="Hand squeezing red paint onto a palette"></div>
   </article>
   <article class="ch" data-clip="special">
-    <div class="ch-text"><span class="num">05</span><h3>Special <em>Events</em></h3><p>Seasonal celebrations, story hours and themed nights at the village.</p><a class="more" href="special-events.html">Explore special events</a></div>
+    <div class="ch-text"><span class="num">05</span><h3>Special <em>Events</em></h3><p>Ticketed community events all year, from The Great Egg Hunt to Moms&#8217; Night Out.</p><a class="more" href="special-events.html">Explore special events</a></div>
     <div class="ch-media"><div class="arch"></div>
       <img class="float a" loading="lazy" src="assets/work/special-a.jpg" alt="Glitter guitar display with purple and teal balloons">
       <img class="float b" loading="lazy" src="assets/work/special-b.jpg" alt="Giant wine glass display with a burgundy and gold balloon garland"></div>
   </article>
   <article class="ch" data-clip="balloons">
-    <div class="ch-text"><span class="num">06</span><h3>Balloons &amp; <em>Backdrops</em></h3><p>Made-to-order garlands, centerpieces and backdrops. On-site installs, pickup or delivery, for all events, not just kids' parties.</p><a class="more" href="balloons-backdrops.html">Explore balloons &amp; backdrops</a></div>
+    <div class="ch-text"><span class="num">06</span><h3>GO <em>OLV</em></h3><p>We bring the magic to you: backdrops, balloon work, centerpieces and favors at your home or venue, plus signature gifts.</p><a class="more" href="balloons-backdrops.html">Explore GO OLV</a></div>
     <div class="ch-media"><div class="arch"></div>
       <img class="float a" loading="lazy" src="assets/work/balloons-a.jpg" alt="Two balloon columns in purple, black and pink">
       <img class="float b" loading="lazy" src="assets/work/balloons-b.jpg" alt="Peach, olive and gold balloon arch in a doorway"></div>
@@ -298,7 +301,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 28px}
 
   <section class="closing"><h2>Let's plan <em>something.</em></h2><div class="cta"><a class="btn main" href="contact.html">Get in touch</a><a class="btn alt" href="https://www.instagram.com/ourlittlevillage.llc/">See more on Instagram</a></div></section>
 </main>
-<footer><div class="wrap"><span>Our Little Village</span><span>1732 Victory Blvd, Staten Island, NY 10314</span><a href="tel:+17188891374">Call 718-889-1374</a><a href="sms:+13473278166">Text 347-327-8166</a><a href="mailto:hello@ourlittlevillage.org">hello@ourlittlevillage.org</a><a href="privacy.html">Privacy Policy</a><span>&copy; 2026 Our Little Village LLC. All rights reserved.</span></div></footer>
+<footer><div class="wrap"><span>Our Little Village</span><span>1732 Victory Blvd, Staten Island, NY 10314</span><a href="tel:+17188891374">Call 718-889-1374</a><a href="sms:+13473278166">Text 347-327-8166</a><a href="mailto:hello@ourlittlevillage.com">hello@ourlittlevillage.com</a><a href="privacy.html">Privacy Policy</a><span>&copy; 2026 Our Little Village LLC. All rights reserved.</span></div></footer>
 
 <script src="assets/motion.js"></script>
 <script>

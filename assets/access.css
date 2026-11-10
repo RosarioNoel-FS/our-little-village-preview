@@ -9,7 +9,7 @@
 .motion-btn:hover{background:#0e0b22}
 body.playing .motion-btn{display:none}
 
-.motion-paused .ticker div,.motion-paused .bal svg,.motion-paused .slide{animation-play-state:paused!important}
+.motion-paused .ticker div,.motion-paused .bal svg,.motion-paused .slide,.motion-paused .run{animation-play-state:paused!important}
 
 .legal{position:relative;z-index:1;max-width:760px;margin:0 auto;padding:30px 16px 110px;color:#e7e4f5}
 .legal h2{font-size:clamp(28px,4vw,38px);line-height:1.12;margin:40px 0 10px;color:#fff}

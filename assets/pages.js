@@ -51,6 +51,37 @@
     if (started && started.catch) started.catch(function(){});
   }
 
+  // Wrap each word of the big headings so they can write on one by one; <em> accents stay intact.
+  if (!reduced) [].forEach.call(document.querySelectorAll('.statement h2,.group-head'), function(h){
+    var n = 0;
+    (function wrap(node){
+      [].slice.call(node.childNodes).forEach(function(c){
+        if (c.nodeType === 1) return wrap(c);
+        if (c.nodeType !== 3) return;
+        var frag = document.createDocumentFragment();
+        c.textContent.split(/(\s+)/).forEach(function(part){
+          if (!part) return;
+          if (/^\s+$/.test(part)) return frag.appendChild(document.createTextNode(part));
+          var w = document.createElement('span'), inner = document.createElement('span');
+          w.className = 'w'; inner.textContent = part; inner.style.setProperty('--w', n++);
+          w.appendChild(inner); frag.appendChild(w);
+        });
+        c.parentNode.replaceChild(frag, c);
+      });
+    })(h);
+    h.classList.add('split');
+  });
+
+  [].forEach.call(document.querySelectorAll('.card'), function(card){
+    [].forEach.call(card.children, function(c, j){ c.style.setProperty('--j', j); });
+    // soft light that follows the pointer
+    card.addEventListener('pointermove', function(ev){
+      var r = card.getBoundingClientRect();
+      card.style.setProperty('--mx', (ev.clientX - r.left) + 'px');
+      card.style.setProperty('--my', (ev.clientY - r.top) + 'px');
+    });
+  });
+
   var items = [].slice.call(document.querySelectorAll('.reveal'));
   if ('IntersectionObserver' in window && !reduced) {
     var seen = new IntersectionObserver(function(entries){
